@@ -1,0 +1,1 @@
+cd ./.. & git clone https://github.com/edhit/anwar.git
