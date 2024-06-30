@@ -24,7 +24,7 @@ export default class PopularsController {
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {
+  async store({ request, inertia }: HttpContext) {
     const data = request.all()
     const file = request.file('file')
     const __dirname = path.resolve().replace('web', 'programms');
@@ -39,9 +39,10 @@ export default class PopularsController {
 
       path_file = `web/uploads/${name}`
     }
-
-    const command = `node ${__dirname} popular ${path_file} ${data.letter} ${data.type} ${data.rate} ${data.name}`
-
+    
+    const command = `node ${__dirname} popular ${path_file} ${data.letter} ${data.price} ${data.type} ${data.opinion} ${data.rate} ${data.name}`
+    // console.log(command);
+    
     await Command.create({
       command: command,
       type: 'popular',
@@ -49,10 +50,10 @@ export default class PopularsController {
     }) 
 
     if (process.platform === 'win32') {
-      exec(`start cmd.exe /K node ${__dirname} popular ${path_file} ${data.letter} ${data.type} ${data.rate} ${data.name}`);
+      exec(`start cmd.exe /K ${command}`);
     }
     // выввести инструкцию и благодарность
-    return data
+    return inertia.render('get_command', { commands: command })
   }
 
   /**

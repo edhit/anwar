@@ -15,16 +15,16 @@ exports.jsonToEcxel = async function(data, file) {
               columns: columns,
               content: data
             },
-          ]
+        ]
 
         const settings = {
             fileName: file
         }
 
-        const download_path = `${__dirname.split('\\').slice(0, -2).join('\\')}\\uploads\\${file}.xlsx`
-    
-        xlsx(excel_file, settings, function () {
-            logger.info("DOWNLOAD COMPLETE " + download_path)
+        // const download_path = `${__dirname.split('\\').slice(0, -2).join('\\')}\\${file}.xlsx`
+
+        xlsx(excel_file, settings, function (sheet) {
+            logger.info("DOWNLOAD COMPLETE")
         });
     } catch (error) {
         logger.error(error)

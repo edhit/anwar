@@ -17,7 +17,7 @@ defineProps(['cookie', 'sk', 'businessid'])
 
 <template>
   <form @submit.prevent="submit">
-  <div class="container bg-white border p-5 rounded mb-3">
+  <div class="container bg-white border border-danger p-5 rounded mb-3">
       <div class="h4 mb-3">Настройки Яндекс</div>
         <div class="mb-3">
           <label class="form-label">Вставь COOKIE из Яндекса</label>
@@ -41,9 +41,10 @@ defineProps(['cookie', 'sk', 'businessid'])
   </div>
 </div>
 <div class="mb-3">
- <button type="submit" class="btn btn-primary btn-lg mb-3">Отправить</button>
+ <button type="submit" class="btn btn-danger btn-lg mb-3">Отправить</button>
 </div>
-<div class="mt-3">
+</div>
+<div class="container bg-white border border-danger p-5 rounded mb-3">
   <table class="table">
   <tbody>
     <tr>
@@ -61,6 +62,5 @@ defineProps(['cookie', 'sk', 'businessid'])
   </tbody>
 </table>
 </div>
-  </div>
   </form>
 </template>

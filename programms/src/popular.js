@@ -5,7 +5,9 @@ const { getProductBySkuOrBarcode } = require('./helpers/get-product-by-sku-or-ba
 const is_number = require('is-number');
 const { tableForExcel } = require('./helpers/table-for-excel');
 const { jsonToEcxel } = require('./helpers/json-to-excel');
-
+const { getPriceFromData } = require('./helpers/get-price-from-data');
+// opinions - отзывы всего
+// ratingCount - оценка всех продавцов
 exports.init = async(params, db) => {
 	try {
 		const yandex_account = await db.get('SELECT * FROM yandexes');
@@ -13,31 +15,55 @@ exports.init = async(params, db) => {
 	
 		const path_file = params[0]
 		const letter = params[1]
-		const type = params[2]
-		const rate = params[3]
-		const file = params[4]
+		const price = params[2]
+		const type = params[3]
+		const opinion = params[4]
+		const rate = params[5]
+		const file = params[6]
 	
-		const data_file = await readFile(path_file)
-	
-		const data_sku = await getSkuOrBarcodeFromData(data_file, letter)
+		const data_file = await readFile(path_file) // читаем файл постовщика
+		const data_sku = await getSkuOrBarcodeFromData(data_file, letter)// получаем (sku и/или barcode) из файла поставщика а
+		const data_price = await getPriceFromData(data_file, price, letter) // получаем цены к (sku и/или barcode) из файла поставщика в ввиде массива 
+		
 		// ОСНОВНАЯ ПРОГРАММА //
 		let result = []
 		let i = 0
 		if (is_number(rate)) {
 			for (const value of data_sku) {
 				i++ 
-				logger.info(`${type}: ${value} | ON THE WAY: ${i}/${data_sku.length}`)
+				logger.info(`${type}: ${value} | ON THE WAY: ${i}/${data_sku.length} | SAVED: ${result.length}`)
 				let product = await getProductBySkuOrBarcode(value, yandex_account)
+
 				try {
 					if (product.length > 1) {
 						for (let index = 0; index < product.length; index++) {
-							if (product && product[index].model && product[index].model.preciseRating && product[index].model.preciseRating >= rate) {
-								result.push(await tableForExcel(product[index], value))
+							if ( // подключить из файла rules
+								product &&
+								product[index] && 
+								product[index].model && 
+								product[index].model.preciseRating && 
+								product[index].model.preciseRating >= rate && 
+								product[index].model.opinions && 
+								product[index].model.opinions >= parseInt(opinion) &&
+								product[index].model.prices &&
+								product[index].model.prices.min
+							) {
+								result.push(await tableForExcel(product[index], value, data_price))
 							}						
 						}
 					} else {
-						if (product && product[0].model && product[0].model.preciseRating && product[0].model.preciseRating >= rate) {
-							result.push(await tableForExcel(product[0], value))	
+						if (
+							product && 
+							product[0] && 
+							product[0].model && 
+							product[0].model.preciseRating && 
+							product[0].model.preciseRating >= rate && 
+							product[0].model.opinions && 
+							product[0].model.opinions >= parseInt(opinion) &&
+							product[0].model.prices &&
+							product[0].model.prices.min
+						) {
+							result.push(await tableForExcel(product[0], value, data_price))	
 						}
 					}
 				} catch (error) {

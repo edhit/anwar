@@ -19,7 +19,7 @@ export default class YandexesController {
   /**
    * Handle form submission for the create action
    */
-  async store({ request }: HttpContext) {
+  async store({ request, inertia }: HttpContext) {
     const data = request.all()
 
     let yandex = await Yandex.find(1)
@@ -38,7 +38,7 @@ export default class YandexesController {
       await yandex.save()
     }
 
-    return yandex
+    return inertia.render('get_message')
   }
 
   /**

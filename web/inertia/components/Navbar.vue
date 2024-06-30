@@ -6,8 +6,8 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/yandex" class="nav-link">Настройки Яндекс</a></li>
-        <li class="nav-item"><a href="/popular" class="nav-link">Популярный товар</a></li>
+        <li class="nav-item"><a href="/yandex" class="nav-link link-dark">Настройки Яндекс</a></li>
+        <li class="nav-item"><a href="/popular" class="nav-link link-dark">Популярный товар</a></li>
       </ul>
     </header>
 </template>

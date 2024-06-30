@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3'
-import Popular from './../components/Popular.vue';
 import Navbar from './../components/Navbar.vue';
+import Footer from './../components/Footer.vue';
+import Popular from './../components/Popular.vue';
 
 import { InferPageProps } from '@adonisjs/inertia/types'
 import type { PopularsController } from '../controllers/populars_controller.ts'
@@ -19,4 +20,5 @@ defineProps<{
     <main>
         <Popular :command="commands"/>
     </main>
+    <Footer />
 </template>

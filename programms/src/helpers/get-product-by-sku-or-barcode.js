@@ -23,9 +23,9 @@ exports.getProductBySkuOrBarcode = async (id, yandex_account) => {
         let request = await axios.request(options)
         let data = request.data.data.result
 
-        // logger.info(data)
         return data
     } catch (error) {
         logger.error(error)
+        process.exit(0)
     }
 }
