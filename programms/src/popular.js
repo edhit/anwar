@@ -8,10 +8,11 @@ const { jsonToEcxel } = require('./helpers/json-to-excel');
 const { getPriceFromData } = require('./helpers/get-price-from-data');
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
+
 exports.init = async(params, db) => {
 	try {
 		const yandex_account = await db.get('SELECT * FROM yandexes');
-		if (!yandex_account) logger.error('NO DATA YANDEX')
+		if (!yandex_account) return logger.error('NO DATA YANDEX')
 	
 		const path_file = params[0]
 		const letter = params[1]
@@ -22,7 +23,7 @@ exports.init = async(params, db) => {
 		const file = params[6]
 	
 		const data_file = await readFile(path_file) // читаем файл постовщика
-		const data_sku = await getSkuOrBarcodeFromData(data_file, letter)// получаем (sku и/или barcode) из файла поставщика а
+		const data_sku = await getSkuOrBarcodeFromData(data_file, letter) // получаем (sku и/или barcode) из файла поставщика а
 		const data_price = await getPriceFromData(data_file, price, letter) // получаем цены к (sku и/или barcode) из файла поставщика в ввиде массива 
 		
 		// ОСНОВНАЯ ПРОГРАММА //
