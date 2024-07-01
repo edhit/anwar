@@ -17,7 +17,7 @@ winget install --id Git.Git -e --source winget
 choco install nodejs-lts --version="20.15.0"
 ```
 ### Установка программы
-Открой папку, куда будет установлена программа и выполняй команды ниже:
+Открой папку, и  куда будет установлена программа и выполняй команды ниже через CMD:
 ```
 git clone https://github.com/edhit/anwar.git
 ```
