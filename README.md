@@ -22,11 +22,18 @@ choco install nodejs-lts --version="20.15.0"
 git clone https://github.com/edhit/anwar.git
 ```
 ```
-cd ./web & npm i & cp .env.example .env & node make:migration run & npm run dev
+cd ./programms & npm i
 ```
 ```
-cd ./../programms & npm i
+cd ./../web & npm i & cp .env.example .env & node make:migration run & npm run dev
 ```
+<img align="right" width="40%" src="https://raw.githubusercontent.com/edhit/anwar/main/public/server.jpg">
+
+В конце всех команд, должно появится такое окно.
+
+
+Открой браузер и введи Server address, который указан в командной строке
+
 ### Обновление программы
 Открой папку, где установлена программа и выполни команду ниже:
 ```
@@ -34,3 +41,5 @@ git pull
 ```
 ### Удаление программы
 Просто удали папку, где находится программа
+## Дополнительно
+Для более удобного запуска программы, создай на рабочем столе файл с расширением \*.bat\* и вставь этот код 
