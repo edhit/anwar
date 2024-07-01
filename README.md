@@ -22,7 +22,7 @@ choco install nodejs-lts --version="20.15.0"
 git clone https://github.com/edhit/anwar.git
 ```
 ```
-cd ./programms & npm i
+cd ./anwar/programms & npm i
 ```
 ```
 cd ./../web & npm i & cp .env.example .env & node make:migration run & npm run dev
