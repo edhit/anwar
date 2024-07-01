@@ -6,7 +6,7 @@
 - [node.js](https://nodejs.org/en/download/package-manager) - для того чтобы работал Anwar
 ## Порядок выполнения установки для Windows
 ### Подготовителный этап
-Открой командную строку, копируй и вставляй по одному команду
+Открой PowerShell, копируй и вставляй по одному команду
 ```
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
