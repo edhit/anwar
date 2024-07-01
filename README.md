@@ -25,7 +25,7 @@ git clone https://github.com/edhit/anwar.git
 cd anwar/programms & npm i
 ```
 ```
-cd ../web & npm i & copy .env.example .env & node ace migration:run & npm run dev
+cd ../web & npm i & copy .env.example .env & mkdir tmp & node ace migration:run & npm run dev
 ```
 <img align="right" width="40%" src="https://raw.githubusercontent.com/edhit/anwar/main/public/server.jpg">
 
