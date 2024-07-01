@@ -1,6 +1,6 @@
 # ANWAR
 ## Установка
-Устоновка необходимых программ для запуска
+Установка необходимых программ для запуска
 - [Chocolate](https://chocolatey.org/install#individual) -  установка программ
 - [Git](https://git-scm.com/download/win) - для обновление Anwar
 - [node.js](https://nodejs.org/en/download/package-manager) - для того чтобы работал Anwar
