@@ -48,5 +48,5 @@ cd "path" & npm run dev
 ```
 path - укажи полный путь до папки anwar/web. Например:
 ```
-C:\anwar\web
+cd C:\anwar\web & npm run dev
 ```
