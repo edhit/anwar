@@ -4,7 +4,7 @@
 - [Chocolate](https://chocolatey.org/install#individual) -  установка программ
 - [Git](https://git-scm.com/download/win) - для обновление Anwar
 - [node.js](https://nodejs.org/en/download/package-manager) - для того чтобы работал Anwar
-## Порядок выполнения установки
+## Порядок выполнения установки для Windows
 ### Подготовителный этап
 Открой командную строку, копируй и вставляй по одному команду
 ```
