@@ -6,18 +6,32 @@ const is_number = require('is-number');
 const { tableForExcel } = require('./helpers/table-for-excel');
 const { jsonToEcxel } = require('./helpers/json-to-excel');
 const { getPriceFromData } = require('./helpers/get-price-from-data');
+const { validate } = require('./helpers/validate');
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
 
+function template() {
+	return ['path_file', 'letter', 'price', 'type', 'opinion', 'rate', 'file', 'yandex']
+}
+
 exports.init = async(params, db) => {
 	try {
-		const yandex_account = await db.get('SELECT * FROM yandexes');
-		if (!yandex_account) return logger.error('NO DATA YANDEX')
-	
+		const fs = require("fs")
+
+		// console.log(`${__dirname}/../../${params[0]}`);
+		// const exists = fs.existsSync(`${__dirname}/../../../${params[0]}`)
+		// console.log(exists);
+		// return
+		const yandex = await db.get('SELECT * FROM yandexes');
+		if (!yandex) return logger.error('NO DATA YANDEX')
+		params.push(yandex)
+
+		await validate(template(), params, 'popular')
+
 		const path_file = params[0]
 		const letter = params[1]
-		const price = params[2]
-		const type = params[3]
+		const price = params[2].toUpperCase() 
+		const type = params[3].toUpperCase()
 		const opinion = params[4]
 		const rate = params[5]
 		const file = params[6]
@@ -33,7 +47,7 @@ exports.init = async(params, db) => {
 			for (const value of data_sku) {
 				i++ 
 				logger.info(`${type}: ${value} | ON THE WAY: ${i}/${data_sku.length} | SAVED: ${result.length}`)
-				let product = await getProductBySkuOrBarcode(value, yandex_account)
+				let product = await getProductBySkuOrBarcode(value, yandex)
 
 				try {
 					if (product.length > 1) {
