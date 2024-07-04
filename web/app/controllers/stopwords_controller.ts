@@ -9,9 +9,9 @@ export default class StopwordsController {
   /**
    * Display a list of resource
    */
-  async index({inertia}: HttpContext) {
+  async index({ inertia }: HttpContext) {
     const command = (await Command.findManyBy('type', 'stopwords')).toReversed()
-    
+
     return inertia.render('stopwords', { commands: command })
   }
 
@@ -26,37 +26,37 @@ export default class StopwordsController {
   async store({ request, inertia }: HttpContext) {
     const data = request.all()
     const file = request.file('file')
-    const __dirname = path.resolve().replace('web', 'programms');
+    const __dirname = path.resolve().replace('web', 'programms')
 
     let path_file
     if (file) {
-      const name = `${cuid()}.${file.extname}`      
+      const name = `${cuid()}.${file.extname}`
 
       await file.move(app.makePath('uploads'), {
-        name: `${name}`
+        name: `${name}`,
       })
 
       path_file = `web/uploads/${name}`
     }
-// console.log(data.words.split(','));
+    // console.log(data.words.split(','));
     let words = []
     for (const value of data.words.split(',')) {
-      if (value.trim() != "") words.push(value.trim())
+      if (value.trim() != '') words.push(value.trim())
     }
 
     const command = `node ${__dirname} stopwords ${path_file} [${words.join(',')}] ${data.name}`
-  
+
     await Command.create({
       command: command,
       type: 'stopwords',
-      name: data.name
-    })     
+      name: data.name,
+    })
 
     if (process.platform === 'win32') {
-      exec(`start cmd.exe /K "cd uploads && ${command}"`);
+      exec(`start cmd.exe /K "cd uploads && ${command}"`)
     }
     // выввести инструкцию и благодарность
-    return inertia.render('get_command', { commands: command })    
+    return inertia.render('get_command', { commands: command })
   }
 
   /**

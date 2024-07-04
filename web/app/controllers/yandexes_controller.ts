@@ -6,9 +6,11 @@ export default class YandexesController {
    * Display a list of resource
    */
   async index({ inertia }: HttpContext) {
-    const yandex = await Yandex.find(1) 
+    const yandex = await Yandex.find(1)
 
-    return inertia.render('yandex', { yandex:{ cookie: yandex?.cookie, sk: yandex?.sk, businessid: yandex?.businessid, }})
+    return inertia.render('yandex', {
+      yandex: { cookie: yandex?.cookie, sk: yandex?.sk, businessid: yandex?.businessid },
+    })
   }
 
   /**

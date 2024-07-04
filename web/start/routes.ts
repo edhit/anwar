@@ -14,7 +14,6 @@ import router from '@adonisjs/core/services/router'
 // router.on('/').renderInertia('home',  { version: 6 })
 
 router.on('/').renderInertia('main')
-router.resource('/popular', PopularsController)  
-router.resource('/yandex', YandexesController) 
-router.resource('/stopwords', StopwordsController) 
-
+router.resource('/popular', PopularsController)
+router.resource('/yandex', YandexesController)
+router.resource('/stopwords', StopwordsController)

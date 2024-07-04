@@ -5,14 +5,13 @@ import app from '@adonisjs/core/services/app'
 import { exec } from 'child_process'
 import path from 'path'
 
-
 export default class PopularsController {
   /**
    * Display a list of resource
    */
   async index({ inertia }: HttpContext) {
     const command = (await Command.findManyBy('type', 'popular')).toReversed()
-    
+
     return inertia.render('popular', { commands: command })
   }
 
@@ -27,32 +26,32 @@ export default class PopularsController {
   async store({ request, inertia }: HttpContext) {
     const data = request.all()
     const file = request.file('file')
-    const __dirname = path.resolve().replace('web', 'programms');
+    const __dirname = path.resolve().replace('web', 'programms')
 
     let path_file
     if (file) {
-      const name = `${cuid()}.${file.extname}`      
+      const name = `${cuid()}.${file.extname}`
 
       await file.move(app.makePath('uploads'), {
-        name: `${name}`
+        name: `${name}`,
       })
 
       path_file = `web/uploads/${name}`
     }
-    
+
     const command = `node ${__dirname} popular ${path_file} ${data.letter} ${data.price} ${data.type} ${data.opinion} ${data.rate} ${data.name}`
     // console.log(command);
-    
+
     await Command.create({
       command: command,
       type: 'popular',
-      name: data.name
-    }) 
+      name: data.name,
+    })
 
     if (process.platform === 'win32') {
-      exec(`start cmd.exe /K "cd uploads && ${command}"`);
+      exec(`start cmd.exe /K "cd uploads && ${command}"`)
     }
-    // выввести инструкцию и благодарность
+
     return inertia.render('get_command', { commands: command })
   }
 

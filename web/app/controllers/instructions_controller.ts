@@ -4,9 +4,8 @@ export default class InstructionsController {
   /**
    * Display a list of resource
    */
-  async index({inertia}: HttpContext) {
+  async index({ inertia }: HttpContext) {
     return inertia.render('yandex')
-
   }
 
   // /**

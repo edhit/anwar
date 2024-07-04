@@ -4,7 +4,7 @@ exports.tableForExcelFromYandex = async function(product, value, data = "") {
     // try {
         let result = {
             sku: product.sku,
-            title: product.model.title,
+            title: product.title,
             barcode: value,
             link: product.link,
             rate: product.model.preciseRating,
