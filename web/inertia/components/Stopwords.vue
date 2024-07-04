@@ -24,7 +24,7 @@ defineProps(['command'])
         <div class="h4 mb-3">Стоп слова</div>
           <div class="row g-3 mb-3">
             <div class="col-12">
-                <label for="inputGroupFile01" class="form-label">Вставь файл, который был создан этой в разделе популярный товар</label>
+                <label for="inputGroupFile01" class="form-label">Вставь файл, который был создан этой в разделе <a href="/popular">популярный товар</a></label>
                 <div class="input-group mb-3">
                 <input type="file" class="form-control" id="inputGroupFile01" @input="form.file = $event.target.files[0]">
                 <progress v-if="form.progress" :value="form.progress.percentage" max="100">
