@@ -31,26 +31,15 @@ exports.validate = async function(template = "", params = "", schema) {
         if (result.valid) return
         else {
             for (const value of result.errors) {
-                logger.error(message(value.path[0], value.stack))
+                // console.log(value);
+                logger.error(message(value.argument, value.property, value.stack))
             }
         }
     } else {
         let dir_progrmm = __dirname.split('\\').slice(0, 4).join('\\')
 
         if (schema === "popular") {
-            logger.error(`
-                Example:\n
-                node ${dir_progrmm} ${schema} web/uploads/exmaple.xlsx A B (barcode|sku) 50 4.5 my_file\n
-                node - command for node js
-                ${dir_progrmm} - path to programm
-                ${schema} - The name of command
-                web/uploads/exmaple.xlsx - path to excel file in root project file
-                A - Letter for (barcode|sku) in excel file
-                B - Letter for price in excel file
-                50 - Minimum opinions on the card of product
-                4.5 - Minimum rate on the card of product
-                my_file - The name of new result file`
-            )
+            logger.error(`Example:\n\nnode ${dir_progrmm} ${schema} web/uploads/exmaple.xlsx A B (barcode|sku) 50 4.5 my_file`)
         }
     }
 

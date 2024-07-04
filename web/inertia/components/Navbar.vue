@@ -5,9 +5,11 @@
         <span class="fs-4"><b>ЯНДЕКС</b>.АНВАРЧИК</span>
       </a>
 
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills mr-5">
         <li class="nav-item"><a href="/yandex" class="nav-link link-dark">Настройки Яндекс</a></li>
         <li class="nav-item"><a href="/popular" class="nav-link link-dark">Популярный товар</a></li>
+        <li class="nav-item"><a href="/stopwords" class="nav-link link-dark">Стоп слова</a></li>
+        <li class="nav-item"><a href="https://github.com/edhit/anwar" class="btn btn-dark mx-3">GitHub</a></li>
       </ul>
     </header>
 </template>

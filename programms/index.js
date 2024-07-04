@@ -12,7 +12,6 @@ process.argv.forEach(function (val, index, array) {
 	
 			if (index === 2) {		
 				const { init } = require('./src/' + val);
-				
 				init(array.slice(3), db)		
 			}
 		})()

@@ -15,4 +15,8 @@ Validator.prototype.customFormats.isAlphanumeric = function(input) {
     return (valid.isAlphanumeric(input))
 };
 
+Validator.prototype.customFormats.arrayNotEmpty = function(input) {
+    return (input.length > 0)
+};
+
 module.exports = new Validator();

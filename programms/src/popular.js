@@ -3,31 +3,26 @@ const { readFile } = require('./helpers/read-file')
 const logger = require('./helpers/logger');
 const { getProductBySkuOrBarcode } = require('./helpers/get-product-by-sku-or-barcode');
 const is_number = require('is-number');
-const { tableForExcel } = require('./helpers/table-for-excel');
+const { tableForExcelFromYandex } = require('./helpers/table-for-excel');
 const { jsonToEcxel } = require('./helpers/json-to-excel');
 const { getPriceFromData } = require('./helpers/get-price-from-data');
 const { validate } = require('./helpers/validate');
+const template = require('./schemes/popular');
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
 
-function template() {
-	return ['path_file', 'letter', 'price', 'type', 'opinion', 'rate', 'file', 'yandex']
-}
+// function template() {
+// 	return ['path_file', 'letter', 'price', 'type', 'opinion', 'rate', 'file', 'yandex']
+// }
 
 exports.init = async(params, db) => {
 	try {
-		const fs = require("fs")
-
-		// console.log(`${__dirname}/../../${params[0]}`);
-		// const exists = fs.existsSync(`${__dirname}/../../../${params[0]}`)
-		// console.log(exists);
-		// return
 		const yandex = await db.get('SELECT * FROM yandexes');
 		if (!yandex) return logger.error('NO DATA YANDEX')
 		params.push(yandex)
 
-		await validate(template(), params, 'popular')
-
+		await validate(Object.keys(template.properties), params, 'popular')
+ 
 		const path_file = params[0]
 		const letter = params[1]
 		const price = params[2].toUpperCase() 
@@ -63,7 +58,7 @@ exports.init = async(params, db) => {
 								product[index].model.prices &&
 								product[index].model.prices.min
 							) {
-								result.push(await tableForExcel(product[index], value, data_price))
+								result.push(await tableForExcelFromYandex(product[index], value, data_price))
 							}						
 						}
 					} else {
@@ -78,7 +73,7 @@ exports.init = async(params, db) => {
 							product[0].model.prices &&
 							product[0].model.prices.min
 						) {
-							result.push(await tableForExcel(product[0], value, data_price))	
+							result.push(await tableForExcelFromYandex(product[0], value, data_price))	
 						}
 					}
 				} catch (error) {

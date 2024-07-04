@@ -5,15 +5,14 @@ import app from '@adonisjs/core/services/app'
 import { exec } from 'child_process'
 import path from 'path'
 
-
-export default class PopularsController {
+export default class StopwordsController {
   /**
    * Display a list of resource
    */
-  async index({ inertia }: HttpContext) {
-    const command = (await Command.findManyBy('type', 'popular')).toReversed()
+  async index({inertia}: HttpContext) {
+    const command = (await Command.findManyBy('type', 'stopwords')).toReversed()
     
-    return inertia.render('popular', { commands: command })
+    return inertia.render('stopwords', { commands: command })
   }
 
   /**
@@ -39,21 +38,25 @@ export default class PopularsController {
 
       path_file = `web/uploads/${name}`
     }
-    
-    const command = `node ${__dirname} popular ${path_file} ${data.letter} ${data.price} ${data.type} ${data.opinion} ${data.rate} ${data.name}`
-    // console.log(command);
-    
+// console.log(data.words.split(','));
+    let words = []
+    for (const value of data.words.split(',')) {
+      if (value.trim() != "") words.push(value.trim())
+    }
+
+    const command = `node ${__dirname} stopwords ${path_file} [${words.join(',')}] ${data.name}`
+  
     await Command.create({
       command: command,
-      type: 'popular',
+      type: 'stopwords',
       name: data.name
-    }) 
+    })     
 
     if (process.platform === 'win32') {
       exec(`start cmd.exe /K "cd uploads && ${command}"`);
     }
     // выввести инструкцию и благодарность
-    return inertia.render('get_command', { commands: command })
+    return inertia.render('get_command', { commands: command })    
   }
 
   /**
