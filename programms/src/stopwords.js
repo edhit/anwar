@@ -31,8 +31,6 @@ exports.init = async(params, db) => {
                 flag = true
                 for (const value of words) {
                    if (data_file[sheet][index].B.toUpperCase().search(value.replace("_", " ").toUpperCase()) !== -1 && flag) {
-                        // console.log(data_file[sheet][index].B);
-                        // console.log(value.replace("_", " "));
                         flag = false
                     }    
                 }
@@ -44,7 +42,9 @@ exports.init = async(params, db) => {
             }
         }
 
-        jsonToEcxel(result, file)        
+		if (result) {
+			jsonToEcxel(result, file)
+		}    
     } catch (error) {
 		logger.error(error)
     }

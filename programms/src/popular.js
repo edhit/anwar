@@ -11,10 +11,6 @@ const template = require('./schemes/popular');
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
 
-// function template() {
-// 	return ['path_file', 'letter', 'price', 'type', 'opinion', 'rate', 'file', 'yandex']
-// }
-
 exports.init = async(params, db) => {
 	try {
 		const yandex = await db.get('SELECT * FROM yandexes');
@@ -83,7 +79,9 @@ exports.init = async(params, db) => {
 		}
 		// КОНЕЦ ОСНОВНОЙ ПРОГРАММЫ //
 
-		jsonToEcxel(result, file)
+		if (result) {
+			jsonToEcxel(result, file)
+		}
 	} catch (error) {
 		logger.error(error)
 	}

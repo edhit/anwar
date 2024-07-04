@@ -1,6 +1,6 @@
 // const logger = require("./logger")
 
-exports.tableForExcel = async function(product, value, data = "") {
+exports.tableForExcelFromYandex = async function(product, value, data = "") {
     // try {
         let result = {
             sku: product.sku,

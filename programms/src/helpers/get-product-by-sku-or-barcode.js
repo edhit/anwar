@@ -26,6 +26,5 @@ exports.getProductBySkuOrBarcode = async (id, yandex_account) => {
         return data
     } catch (error) {
         logger.error(error)
-        process.exit(0)
     }
 }
