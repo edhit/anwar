@@ -45,7 +45,12 @@ defineProps(['cookie', 'sk', 'businessid'])
 </div>
 </div>
 <div class="container bg-white border border-danger p-5 rounded mb-3">
-  <table class="table">
+  <div class="h4 mb-3">Сохраненные данные</div>
+  <table class="table table-striped">
+    <thead>
+      <th>#</th>
+      <th>Данные</th>
+  </thead>
   <tbody>
     <tr>
       <td><b>COOKIE</b></td>

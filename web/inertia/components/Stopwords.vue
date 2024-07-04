@@ -53,7 +53,7 @@ defineProps(['command'])
 </div>
 <div class="container bg-white border border-secondary p-5 rounded mb-3">
   <div class="h4 mb-3">Последние команды</div>
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <th>#</th>
       <th>Команды</th>
