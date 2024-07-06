@@ -44,9 +44,9 @@ import Footer from './../components/Footer.vue'
             <div class="card-body">
               <h5 class="card-title"><b>Скоро новая функция!!</b></h5>
               <p class="card-text">
-                Не забывай, иногда, вводить <code>git pull</code> для обновления
+                А пока можешь почитать инструкцию по функциям, которые здесь есть
               </p>
-              <a href="/" class="btn btn-primary">Хорошо</a>
+              <a href="/instructions" class="btn btn-primary">Читать</a>
             </div>
           </div>
         </div>

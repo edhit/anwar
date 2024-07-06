@@ -17,14 +17,16 @@ exports.jsonToEcxel = async function(data, file) {
             },
         ]
 
+        const download_path = `${__dirname.split('\\').slice(0, -3).join('\\')}\\uploads`
+
         const settings = {
-            fileName: file
+            fileName: `${download_path}\\${file}.xlsx` 
         }
 
-        // const download_path = `${__dirname.split('\\').slice(0, -2).join('\\')}\\${file}.xlsx`
-
         xlsx(excel_file, settings, function (sheet) {
-            logger.info("DOWNLOAD COMPLETE")
+            logger.info(`DOWNLOAD COMPLETE: ${download_path}`)
+
+            require('child_process').exec(`start "" "${download_path}"`);
         });
     } catch (error) {
         logger.error(error)

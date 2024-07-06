@@ -6,8 +6,8 @@ const is_number = require('is-number');
 const { tableForExcelFromYandex } = require('./helpers/table-for-excel');
 const { jsonToEcxel } = require('./helpers/json-to-excel');
 const { getPriceFromData } = require('./helpers/get-price-from-data');
-const { validate } = require('./helpers/validate');
-const template = require('./schemes/popular');
+// const { validate } = require('./helpers/validate');
+// const template = require('./schemes/popular');
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
 
@@ -17,7 +17,7 @@ exports.init = async(params, db) => {
 		if (!yandex) return logger.error('NO DATA YANDEX')
 		params.push(yandex)
 
-		await validate(Object.keys(template.properties), params, 'popular')
+		// await validate(Object.keys(template.properties), params, 'popular')
  
 		const path_file = params[0]
 		const letter = params[1]
@@ -43,7 +43,7 @@ exports.init = async(params, db) => {
 				try {
 					if (product.length > 1) {
 						for (let index = 0; index < product.length; index++) {
-							if ( // подключить из файла rules
+							if ( 
 								product &&
 								product[index] && 
 								product[index].model && 

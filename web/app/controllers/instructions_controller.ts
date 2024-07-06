@@ -1,11 +1,14 @@
 import type { HttpContext } from '@adonisjs/core/http'
+import path from 'path'
 
 export default class InstructionsController {
   /**
    * Display a list of resource
    */
   async index({ inertia }: HttpContext) {
-    return inertia.render('yandex')
+    const __dirname = path.resolve().replace("\\web", "")
+    
+    return inertia.render('instructions', { dirname: __dirname.split('\\') })
   }
 
   // /**

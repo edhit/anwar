@@ -2,8 +2,8 @@ const { getSkuOrBarcodeFromData } = require("./helpers/get-sku-or-barcode-from-d
 const { jsonToEcxel } = require("./helpers/json-to-excel");
 const logger = require("./helpers/logger");
 const { readFile } = require('./helpers/read-file')
-const { validate } = require('./helpers/validate');
-const template = require('./schemes/stopwords');
+// const { validate } = require('./helpers/validate');
+// const template = require('./schemes/stopwords');
 
 exports.init = async(params, db) => {
     try {
@@ -12,7 +12,7 @@ exports.init = async(params, db) => {
         new_params[1] = params.slice(1, params.length - 1).join(" ").slice(1).slice(0, -1).split(',')
         new_params[2] = params[params.length - 1]
 
-        await validate(Object.keys(template.properties), new_params, 'stopwords')
+        // await validate(Object.keys(template.properties), new_params, 'stopwords')
 
 		const path_file = new_params[0]
         const words = new_params[1]
