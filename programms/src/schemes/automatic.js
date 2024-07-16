@@ -5,7 +5,7 @@ module.exports  = {
       type: "string",
       format: 'fileExist'
     },
-    words: {
+    actions: {
       type: "array",
       format: 'arrayNotEmpty'
     },
@@ -16,7 +16,7 @@ module.exports  = {
   },
   required: [
     "path_file",
-    "words",
+    "actions",
     "file",
   ],
   additionalProperties: false

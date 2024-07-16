@@ -1,7 +1,7 @@
 const messages = {
     fileExist: 'The file wasn`t find',
     isAlpha: 'Must be a letter',
-    isAlphanumeric: 'Must be a letter or numeric',
+    fileName: 'Must be a letter or numeric',
     arrayNotEmpty: 'Array is empty'
 }
 

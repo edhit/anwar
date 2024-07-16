@@ -23,8 +23,8 @@ module.exports  = {
       type: "number"
     },
     file: {
-      type: "string",
-      format: 'isAlphanumeric'
+      type: ["string", "number"],
+      format: 'fileName'
     },
     yandex: {
       type: "object"

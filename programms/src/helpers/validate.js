@@ -36,10 +36,16 @@ exports.validate = async function(template = "", params = "", schema) {
             }
         }
     } else {
-        let dir_progrmm = __dirname.split('\\').slice(0, 4).join('\\')
+        // let dir_progrmm = __dirname.split('\\').slice(0, 4).join('\\')
 
         if (schema === "popular") {
-            logger.error(`Example:\n\nnode ${dir_progrmm} ${schema} web/uploads/exmaple.xlsx A B (barcode|sku) 50 4.5 my_file`)
+            logger.error('node index automatic path letter_sku letter_price type opinion rate file_name')
+        }
+        if (schema === "stopwords") {
+            logger.error("node index automatic path [stopwords] file_name")
+        }
+        if (schema === "automatic") {
+            logger.error("node index automatic path letter_link type file_name")
         }
     }
 

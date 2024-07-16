@@ -6,8 +6,11 @@ const is_number = require('is-number');
 const { tableForExcelFromYandex } = require('./helpers/table-for-excel');
 const { jsonToEcxel } = require('./helpers/json-to-excel');
 const { getPriceFromData } = require('./helpers/get-price-from-data');
-// const { validate } = require('./helpers/validate');
-// const template = require('./schemes/popular');
+const { validate } = require('./helpers/validate');
+const template = require('./schemes/popular');
+
+// node index automatic path letter_sku letter_price type opinion rate file_name
+
 // opinions - отзывы всего
 // ratingCount - оценка всех продавцов
 
@@ -17,12 +20,12 @@ exports.init = async(params, db) => {
 		if (!yandex) return logger.error('NO DATA YANDEX')
 		params.push(yandex)
 
-		// await validate(Object.keys(template.properties), params, 'popular')
- 
+		await validate(Object.keys(template.properties), params, 'popular')
+		
 		const path_file = params[0]
-		const letter = params[1]
+		const letter = params[1].toUpperCase()
 		const price = params[2].toUpperCase() 
-		const type = params[3].toUpperCase()
+		const type = params[3]
 		const opinion = params[4]
 		const rate = params[5]
 		const file = params[6]

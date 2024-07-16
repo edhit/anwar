@@ -4,15 +4,20 @@ const valid = require('validator');
 
 
 Validator.prototype.customFormats.fileExist = function(input) {
-    return (fs.existsSync(`${__dirname}/../../../${input}`))
+    let sourceFile = input
+    if (input.split('/')[0] === "web") {
+        sourceFile =  __dirname + '/../../../' + input
+    }
+    return (fs.existsSync(sourceFile))
 };
 
 Validator.prototype.customFormats.isAlpha = function(input) {
     return (valid.isAlpha(input))
 };
 
-Validator.prototype.customFormats.isAlphanumeric = function(input) {
-    return (valid.isAlphanumeric(input))
+Validator.prototype.customFormats.fileName = function(input) {
+    const regex = new RegExp('^[^~)(\'!*<>:;,?"*|\/]+$', 'gm')
+    return regex.test(input)
 };
 
 Validator.prototype.customFormats.arrayNotEmpty = function(input) {
