@@ -35,8 +35,9 @@ defineProps<{
           >
             <div class="accordion-body">
               <p>
-                Для того, чтобы делать запросы в Яндекс и использовать некоторые функции. Например:
-                <a href="/popular">"популярный товар"</a>
+                Для того, чтобы делать запросы в Яндекс и использовать функцию
+                <a href="/popular">"популярный товар"</a>, нужно указать secret key, businessid и
+                COOKIE. <br /><br />Внизу есть инструкция, как можно получить эти данные
               </p>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
@@ -113,6 +114,7 @@ defineProps<{
           >
             <div class="accordion-body">
               <p>
+                Это функция отсеивает товар по стоп словам. Эти товары не будут добавлены в новый файл.<br /><br />
                 Для корректной работы этой функции, используй файл, который был создан внутри этой
                 программы. Например из функции <a href="/popular">"популярной товар"</a
                 ><br /><br /><a href="/stopwords">->Нажми на меня<-</a>
@@ -120,6 +122,36 @@ defineProps<{
             </div>
           </div>
         </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseSix"
+              aria-expanded="false"
+              aria-controls="collapseSix"
+            >
+              Автоматика
+            </button>
+          </h2>
+          <div
+            id="collapseSix"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <p>
+                Эта функция будет сама переходить на страницу Яндекса, и получать из нее информацию.<br /><br />
+                Для корректной работы этой функции, используй файл, который был создан внутри этой
+                программы. Например из функции <a href="/popular">"популярной товар"</a
+                ><br /><br /><a href="/automatics">->Нажми на меня<-</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button
@@ -142,13 +174,15 @@ defineProps<{
               <p>
                 Чтобы запустить программу, скопируй код внизу<br /><br />
                 <code
-                  >{{ dirname[0] }} & cd <text v-for="item in dirname">{{ item }}/</text>web & npm run
-                  dev</code
+                  >{{ dirname[0] }} & cd <text v-for="item in dirname">{{ item }}/</text>web & npm
+                  run dev</code
                 >
                 <br /><br />
                 Создай на рабочем столе текстовый файл и вставь этот код, потом переменуй его на:
                 <br /><br />
                 <code>start.bat</code>
+                <br /><br />или<br /><br />
+                Вставь его в командную строку
               </p>
             </div>
           </div>
@@ -172,15 +206,18 @@ defineProps<{
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-                <p>
+              <p>
                 Чтобы обновить программу, скопируй код внизу<br /><br />
                 <code
-                  >{{ dirname[0] }} & cd <text v-for="item in dirname">{{ item }}/</text> & git pull</code
+                  >{{ dirname[0] }} & cd <text v-for="item in dirname">{{ item }}/</text> & git
+                  pull</code
                 >
                 <br /><br />
                 Создай на рабочем столе текстовый файл и вставь этот код, потом переменуй его на:
                 <br /><br />
                 <code>update.bat</code>
+                <br /><br />или<br /><br />
+                Вставь его в командную строку
               </p>
             </div>
           </div>

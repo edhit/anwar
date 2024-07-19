@@ -1,10 +1,8 @@
-const {keyboard, Key, clipboard, mouse, straightTo, Point} = require("@nut-tree-fork/nut-js");
+const { keyboard, Key, clipboard } = require("@nut-tree-fork/nut-js");
 const { delay } = require("../delay");
-const { copyText } = require("./copy-text");
+const { copyText } = require("./copy-page");
 
-const isYandexMarketPage = 'html[data-baobab-name="$page"]'
-
-exports.getHtmlCodeFromYandex = async(url) => {
+exports.getHtmlCodeFromYandex = async(url, filter) => {
     await delay(1000)
     await keyboard.pressKey(Key.LeftControl, Key.T);
     await keyboard.releaseKey(Key.LeftControl, Key.T);
@@ -24,14 +22,7 @@ exports.getHtmlCodeFromYandex = async(url) => {
     await keyboard.pressKey(Key.Enter);
     await keyboard.releaseKey(Key.Enter);
 
-    let text = await copyText(1, isYandexMarketPage)
-
-    await keyboard.pressKey(Key.LeftControl, Key.W);
-    await keyboard.releaseKey(Key.LeftControl, Key.W);
-    await keyboard.pressKey(Key.LeftControl, Key.W);
-    await keyboard.releaseKey(Key.LeftControl, Key.W);
-
-    return text
+    return await copyText(1, filter)
 }
 
     // const target = new Point(500, 350);

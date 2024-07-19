@@ -64,6 +64,7 @@
             <a href="/popular" class="nav-link link-dark">Популярный товар</a>
           </li>
           <li class="nav-item"><a href="/stopwords" class="nav-link link-dark">Стоп слова</a></li>
+          <li class="nav-item"><a href="/automatics" class="nav-link link-dark">Автоматика</a></li>
         </ul>
       </li>
       <div class="vr"></div>

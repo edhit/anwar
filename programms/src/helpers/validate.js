@@ -45,7 +45,7 @@ exports.validate = async function(template = "", params = "", schema) {
             logger.error("node index automatic path [stopwords] file_name")
         }
         if (schema === "automatic") {
-            logger.error("node index automatic path letter_link type file_name")
+            logger.error("node index automatic path [action] file_name")
         }
     }
 

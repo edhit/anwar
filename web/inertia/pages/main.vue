@@ -24,7 +24,7 @@ import Footer from './../components/Footer.vue'
           <div class="card border-success">
             <div class="card-body">
               <h5 class="card-title">Популярный товар</h5>
-              <p class="card-text">Поиск популярного товара в Яндекс.Маркет</p>
+              <p class="card-text">Поиск популярного товара из файла поставщика в Яндекс.Маркет</p>
               <a href="/popular" class="btn btn-success">Перейти</a>
             </div>
           </div>
@@ -35,6 +35,15 @@ import Footer from './../components/Footer.vue'
               <h5 class="card-title">Стоп слова</h5>
               <p class="card-text">Удалить строки из файла Excel по ключивым словам</p>
               <a href="/stopwords" class="btn btn-secondary">Перейти</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 p-2">
+          <div class="card border-warning">
+            <div class="card-body">
+              <h5 class="card-title">Автоматика</h5>
+              <p class="card-text">Извлечь ифнормацию из страницы товара яндекс</p>
+              <a href="/automatics" class="btn btn-warning">Перейти</a>
             </div>
           </div>
         </div>

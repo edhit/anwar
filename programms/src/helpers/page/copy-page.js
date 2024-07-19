@@ -3,10 +3,10 @@ const { delay } = require("../delay");
 const cheerio = require('cheerio');
 const logger = require("../logger");
 
-const attempt = 15
+const attempts = (process.env.attempts) ? process.env.attempts : 15
 
 async function copyText(second, filter) {
-    logger.info(`We are trying to copy a page. Attempt: ${second}/${attempt}`)
+    logger.warn(`We are trying to copy a page. Attempt: ${second}/${attempts}`)
     await keyboard.pressKey(Key.LeftControl, Key.A);
     await keyboard.releaseKey(Key.LeftControl, Key.A);
     await delay(1000)
@@ -21,7 +21,7 @@ async function copyText(second, filter) {
     await delay(second * 1000)
         
     second++
-    if (second <= attempt) return await copyText(second, filter)
+    if (second <= attempts) return await copyText(second, filter)
 
     return false
 }

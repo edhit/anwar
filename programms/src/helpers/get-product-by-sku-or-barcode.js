@@ -1,11 +1,13 @@
 const axios = require('axios');
 const logger = require("./logger")
 
+const getProductFromYandexBySku =  (process.env.getProductFromYandexBySku) ? process.env.getProductFromYandexBySku : "https://partner.market.yandex.ru/api/fulfillment/search-market-sku"
+
 exports.getProductBySkuOrBarcode = async (id, yandex_account) => {
     try {
         const options = {
             method: "GET",
-            url: "https://partner.market.yandex.ru/api/fulfillment/search-market-sku",
+            url: getProductFromYandexBySku,
             responseType: "json",
             headers: {
                 "sk": yandex_account.sk.trim(),

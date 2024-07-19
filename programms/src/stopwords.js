@@ -7,7 +7,7 @@ const template = require('./schemes/stopwords');
 
 // node index stopwords path [stopwords] file_name
 
-const sku_letter = "A"
+const sku_letter = (process.env.sku_letter) ? process.env.sku_letter : "A"
 
 exports.init = async(params, db) => {
     try {
@@ -45,6 +45,7 @@ exports.init = async(params, db) => {
                 logger.error(`SKU: ${data_sku[index]} DIDN'T ADD IN THE LIST`)
             }
         }
+        // КОНЕЦ ОСНОВНОЙ ПРОГРАММЫ //
 
 		if (result) {
 			jsonToEcxel(result, file)

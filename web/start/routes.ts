@@ -7,6 +7,7 @@
 |
 */
 
+import AutomaticsController from '#controllers/automatics_controller'
 import InstructionsController from '#controllers/instructions_controller'
 import PopularsController from '#controllers/populars_controller'
 import StopwordsController from '#controllers/stopwords_controller'
@@ -19,3 +20,4 @@ router.resource('/popular', PopularsController)
 router.resource('/yandex', YandexesController)
 router.resource('/stopwords', StopwordsController)
 router.resource('/instructions', InstructionsController)
+router.resource('/automatics', AutomaticsController)

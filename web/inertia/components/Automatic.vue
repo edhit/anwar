@@ -3,12 +3,12 @@ import { useForm } from '@inertiajs/vue3'
 
 const form = useForm({
   file: null,
-  words: null,
+  actions: null,
   name: null,
 })
 
 function submit() {
-  form.post('/stopwords')
+  form.post('/automatics')
 }
 
 defineProps(['command'])
@@ -17,11 +17,11 @@ defineProps(['command'])
 
 <template>
   <form @submit.prevent="submit">
-    <div class="container bg-white border border-secondary p-5 rounded mb-3">
+    <div class="container bg-white border border-warning p-5 rounded mb-3">
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last"></div>
         <div class="col-md-7 col-lg-8">
-          <div class="h4 mb-3">Стоп слова</div>
+          <div class="h4 mb-3">Автоматика</div>
           <div class="row g-3 mb-3">
             <div class="col-12">
               <label for="inputGroupFile01" class="form-label"
@@ -44,9 +44,14 @@ defineProps(['command'])
 
             <div class="col-12">
               <label class="form-label"
-                >Вставь стоп слова(каждое стоп слово пиши через запятую)</label
+                >Что делать на странице товара,</label
               >
-              <textarea class="form-control" v-model="form.words" rows="3"></textarea>
+
+              <select class="form-select" multiple aria-label="Multiple select example">
+                <option value="1">Найти товар с знаком отлличный продовец</option>
+                <option value="2">Сравнить цены с ценой поставщика</option>
+                <option value="3">Three</option>
+              </select>
             </div>
 
             <!-- потом можно добавить поиск по разным параметрам(количество просмотров, рейтинг итд) -->
@@ -62,11 +67,11 @@ defineProps(['command'])
             </div>
           </div>
 
-          <button class="w-100 btn btn-secondary btn-lg" type="submit">Отправить</button>
+          <button class="w-100 btn btn-warning btn-lg" type="submit">Отправить</button>
         </div>
       </div>
     </div>
-    <div class="container bg-white border border-secondary p-5 rounded mb-3">
+    <div class="container bg-white border border-warning p-5 rounded mb-3">
       <div class="h4 mb-3">Последние команды</div>
       <table class="table table-striped">
         <thead>
