@@ -2,6 +2,7 @@ const { keyboard, Key, clipboard } = require("@nut-tree-fork/nut-js");
 const { delay } = require("../delay");
 const cheerio = require('cheerio');
 const logger = require("../logger");
+const { closeOnePage } = require("./close-page");
 
 const attempts = (process.env.attempts) ? process.env.attempts : 15
 
@@ -17,7 +18,11 @@ async function copyText(second, filter) {
 
     const $ = cheerio.load(clipb);
     
-    if ($(filter).text().trim() !== "")  return clipb
+    if ($(filter).text().trim() !== "") {
+        await closeOnePage()
+        await delay(1000)
+        return clipb
+    }
     await delay(second * 1000)
         
     second++

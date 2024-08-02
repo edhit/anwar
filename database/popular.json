@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": "e033c334-a7e0-4ae2-84ae-ffdfcb270563",
+      "name": "june",
+      "path_file": "D:/Github/anwar/uploads/site/Q6B_T4CH3qA.xlsx",
+      "letter": "C",
+      "price": "E",
+      "type": "BARCODE",
+      "opinion": "0",
+      "rate": 2,
+      "new_file": "popular_june",
+      "command": "node D:/Github/anwar/programms popular",
+      "date": "3-8-2024 0:19",
+      "time": 1722633544231
+    },
+    {
+      "id": "a3d3edc6-2da6-4dea-9b34-1545e4ed2048",
+      "name": "June",
+      "path_file": "D:/Github/anwar/uploads/site/4cGzbZJRw4r.xlsx",
+      "letter": "C",
+      "price": "E",
+      "type": "BARCODE",
+      "opinion": "0",
+      "rate": 2,
+      "new_file": "popular_June",
+      "command": "node D:/Github/anwar/programms popular",
+      "date": "3-8-2024 0:20",
+      "time": 1722633650529
+    }
+  ]
+}

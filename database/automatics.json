@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": "0d317947-9af6-4df0-93c9-66468d550290",
+      "name": "June",
+      "path_file": "D:/Github/anwar/uploads/site/LMInsEWnoQf.xlsx",
+      "deleteVendorData": [
+        "медстор"
+      ],
+      "new_file": "automatics_June",
+      "command": "node D:/Github/anwar/programms automatics",
+      "date": "3-8-2024 0:25",
+      "time": 1722633907614
+    }
+  ]
+}

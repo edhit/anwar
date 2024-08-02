@@ -6,8 +6,8 @@ module.exports  = {
       format: 'fileExist'
     },
     actions: {
-      type: "array",
-      format: 'arrayNotEmpty'
+      type: "number",
+      // format: 'arrayNotEmpty'
     },
     file: {
       type: ["string", "number"],

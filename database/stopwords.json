@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": "cb63f51c-dcf6-4bb8-a105-670dae0d9960",
+      "name": "June",
+      "path_file": "D:/Github/anwar/uploads/site/JM_xq2qlqKE.xlsx",
+      "words": [
+        "100 мл"
+      ],
+      "new_file": "stopwords_June",
+      "command": "node D:/Github/anwar/programms stopwords",
+      "date": "3-8-2024 0:22",
+      "time": 1722633757263
+    },
+    {
+      "id": "5d34e38e-7513-4304-8905-f94d4b9c52a4",
+      "name": "June",
+      "path_file": "D:/Github/anwar/uploads/site/JM_xq2qlqKE.xlsx",
+      "words": [
+        "100 мл",
+        "Venus"
+      ],
+      "new_file": "stopwords_June",
+      "command": "node D:/Github/anwar/programms stopwords",
+      "date": "3-8-2024 0:23",
+      "time": 1722633786189
+    }
+  ]
+}

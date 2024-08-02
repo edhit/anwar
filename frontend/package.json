@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^2.18.2",
+    "lodash": "^4.17.21",
+    "lowdb": "^7.0.1",
+    "nanoid": "^5.0.7",
+    "nuxt": "^3.12.4",
+    "uuid": "^10.0.0",
+    "vue": "latest",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0",
+    "nuxt-file-storage": "^0.2.7"
+  }
+}

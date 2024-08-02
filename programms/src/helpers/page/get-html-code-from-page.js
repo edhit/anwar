@@ -2,8 +2,35 @@ const { keyboard, Key, clipboard } = require("@nut-tree-fork/nut-js");
 const { delay } = require("../delay");
 const { copyText } = require("./copy-page");
 
-exports.getHtmlCodeFromYandex = async(url, filter) => {
-    await delay(1000)
+// exports.getHtmlCodeFromMain = async(url, filter) => {
+//     // await delay(1000)
+//     // await keyboard.pressKey(Key.LeftControl, Key.T);
+//     // await keyboard.releaseKey(Key.LeftControl, Key.T);
+//     // await delay(2000)
+//     // await clipboard.setContent(url);
+//     // await keyboard.pressKey(Key.LeftControl, Key.V);
+//     // await keyboard.releaseKey(Key.LeftControl, Key.V);
+//     // await keyboard.pressKey(Key.Enter);
+//     // await keyboard.releaseKey(Key.Enter);
+//     // await delay(1000)
+//     // await keyboard.pressKey(Key.LeftControl, Key.T);
+//     // await keyboard.releaseKey(Key.LeftControl, Key.T);
+//     // await delay(2000)
+//     // await clipboard.setContent(`view-source:${url}`);
+//     // await keyboard.pressKey(Key.LeftControl, Key.V);
+//     // await keyboard.releaseKey(Key.LeftControl, Key.V);
+//     // await keyboard.pressKey(Key.Enter);
+//     // await keyboard.releaseKey(Key.Enter);
+//     require('child_process').exec(`start ${url}`);
+//     await delay(2000)
+//     await keyboard.pressKey(Key.LeftControl, Key.U);
+//     await keyboard.releaseKey(Key.LeftControl, Key.U);
+
+//     return await copyText(1, filter)
+// }
+
+exports.getHtmlCodeFromPage = async(url, filter) => {
+    await delay(2000)
     await keyboard.pressKey(Key.LeftControl, Key.T);
     await keyboard.releaseKey(Key.LeftControl, Key.T);
     await delay(2000)
@@ -12,7 +39,7 @@ exports.getHtmlCodeFromYandex = async(url, filter) => {
     await keyboard.releaseKey(Key.LeftControl, Key.V);
     await keyboard.pressKey(Key.Enter);
     await keyboard.releaseKey(Key.Enter);
-    await delay(1000)
+    await delay(2000)
     await keyboard.pressKey(Key.LeftControl, Key.T);
     await keyboard.releaseKey(Key.LeftControl, Key.T);
     await delay(2000)
@@ -24,7 +51,6 @@ exports.getHtmlCodeFromYandex = async(url, filter) => {
 
     return await copyText(1, filter)
 }
-
     // const target = new Point(500, 350);
 
     // await mouse.move(straightTo(target));

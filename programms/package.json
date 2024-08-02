@@ -2,24 +2,21 @@
   "dependencies": {
     "@nut-tree-fork/nut-js": "^4.2.1",
     "axios": "^1.5.0",
+    "browser-kill": "^1.0.2",
     "cheerio": "^1.0.0-rc.12",
     "convert-excel-to-json": "^1.7.0",
     "dotenv": "^16.4.5",
     "is-number": "^7.0.0",
     "json-as-xlsx": "^2.5.3",
     "jsonschema": "^1.4.1",
+    "kill-chrome": "^2.2.0",
     "pino": "^9.2.0",
     "pino-pretty": "^11.2.1",
-    "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7",
     "validator": "^13.12.0"
   },
   "name": "yandex",
   "version": "1.0.0",
   "main": "index.js",
-  "bin": {
-    "yandex": "bin/bin.js"
-  },
   "scripts": {
     "lint": "eslint .",
     "format": "eslint . --fix",
