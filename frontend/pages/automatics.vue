@@ -260,7 +260,7 @@
 													''
 												)
 													state.deleteVendorData.push(
-														state.deleteVendor_word
+														state.deleteVendor_word.trim()
 													);
 												state.deleteVendor_word = '';
 											"

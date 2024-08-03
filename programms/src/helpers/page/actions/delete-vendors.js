@@ -46,10 +46,10 @@ exports.deleteVendors = async (html, filter, data) => {
 	let flag = true;
 	for (const value of data) {
 		if (
-			$('noframes[class="apiary-patch"]')
+			$("html")
 				.text()
 				.toUpperCase()
-				.indexOf(value.toUpperCase()) > 0
+				.indexOf(`"shopName":"${value}"`.toUpperCase()) > 0
 		) {
 			flag = false;
 		}

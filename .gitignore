@@ -1,3 +1,4 @@
 *.xlsx
 uploads/*.json
-.data
+uploads/bin/*.txt
+database/*.json

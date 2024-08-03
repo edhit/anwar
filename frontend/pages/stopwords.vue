@@ -222,7 +222,7 @@
 						v-model="state.input_word"
 						@keyup.ctrl.enter="
 							if (state.input_word != '')
-								state.words.push(state.input_word);
+								state.words.push(state.input_word.trim());
 							state.input_word = '';
 						"
 					/>

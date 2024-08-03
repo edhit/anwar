@@ -7,9 +7,9 @@ export default defineEventHandler(async (event) => {
 		if (process.platform === "win32") {
 			exec(`start cmd.exe /K "${data}"`);
 		}
-		if (process.platform === "darwin") {
-			exec(`open -a Terminal ${data}`);
-		}
+		// if (process.platform === "darwin") {
+		// 	exec(`open -a Terminal ${data}`);
+		// }
 	} catch (error) {
 		return false;
 	}
