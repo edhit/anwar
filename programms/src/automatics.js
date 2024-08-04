@@ -30,7 +30,7 @@ const isYandexMarketPage = process.env.isYandexMarketPage
 
 exports.init = async (params, db) => {
 	try {
-		mouseMove();
+		// mouseMove();
 
 		const store = await getParams(params[0], params[1]);
 
