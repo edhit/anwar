@@ -91,7 +91,7 @@ exports.init = async (params, db) => {
 				}
 
 				if (result.length > 0) {
-					jsonToEcxel(result, file);
+					jsonToEcxel(result, file, false);
 				}
 			} catch (error) {
 				logger.error(
