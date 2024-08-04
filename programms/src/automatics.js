@@ -36,6 +36,7 @@ exports.init = async (params, db) => {
 		const path_file = store.path_file;
 		const deleteVendorData = store.deleteVendorData;
 		const file = store.new_file;
+		const start_from = params[2] ? params[2] : 0;
 
 		const data_file = await readFile(path_file); // читаем файл постовщика
 		const data_sku = await getSkuOrBarcodeFromData(data_file, sku_letter);
@@ -43,7 +44,7 @@ exports.init = async (params, db) => {
 
 		// ОСНОВНАЯ ПРОГРАММА //
 		let result = [];
-		for (let index = 0; index < data_sku.length; index++) {
+		for (let index = start_from; index < data_sku.length; index++) {
 			logger.info(
 				`SKU: ${data_file[sheet][index][sku_letter]} | ON THE WAY: ${index}/${data_sku.length} | SAVED: ${result.length}`
 			);
