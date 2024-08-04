@@ -4,7 +4,9 @@ const { delay } = require("../delay");
 
 function getRandomInt(max) {
 	max = max === 0 ? 1 : max;
-	return Math.floor(Math.random() * max);
+	return Math.floor(Math.random() * max) < 10
+		? 15
+		: Math.floor(Math.random() * max);
 }
 
 async function mouseMove(last = undefined) {

@@ -31,6 +31,8 @@ const isYandexMarketPage = process.env.isYandexMarketPage
 exports.init = async (params, db) => {
 	try {
 		mouseMove();
+
+		return;
 		const store = await getParams(params[0], params[1]);
 
 		const path_file = store.path_file;
