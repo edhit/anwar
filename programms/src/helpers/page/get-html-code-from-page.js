@@ -29,17 +29,22 @@ const { copyText } = require("./copy-page");
 //     return await copyText(1, filter)
 // }
 
+function getRandomInt(max) {
+	max = max === 0 ? 1 : max;
+	return Math.floor(Math.random() * max);
+}
+
 exports.getHtmlCodeFromPage = async (url, filter) => {
-	await delay(2000);
+	await delay(3000 + getRandomInt(1000));
 	await keyboard.pressKey(Key.LeftControl, Key.T);
 	await keyboard.releaseKey(Key.LeftControl, Key.T);
-	await delay(2000);
+	await delay(3000 + getRandomInt(1000));
 	await clipboard.setContent(url);
 	await keyboard.pressKey(Key.LeftControl, Key.V);
 	await keyboard.releaseKey(Key.LeftControl, Key.V);
 	await keyboard.pressKey(Key.Enter);
 	await keyboard.releaseKey(Key.Enter);
-	await delay(3000);
+	await delay(3000 + getRandomInt(1000));
 	await keyboard.pressKey(Key.LeftControl, Key.U);
 	await keyboard.releaseKey(Key.LeftControl, Key.U);
 
