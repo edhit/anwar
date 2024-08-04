@@ -44,6 +44,13 @@ exports.init = async (params, db) => {
 
 		// ОСНОВНАЯ ПРОГРАММА //
 		let result = [];
+		if (start_from !== 0) {
+			await Brkill.chrome();
+			await delay(2000);
+
+			require("child_process").exec(`start ${open_page}`);
+			await delay(2000);
+		}
 		for (let index = start_from; index < data_sku.length; index++) {
 			logger.info(
 				`SKU: ${data_file[sheet][index][sku_letter]} | ON THE WAY: ${index}/${data_sku.length} | SAVED: ${result.length}`
