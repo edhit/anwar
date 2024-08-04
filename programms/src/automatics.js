@@ -79,7 +79,7 @@ exports.init = async (params, db) => {
 					}
 				}
 
-				if (result) {
+				if (result.length > 0) {
 					jsonToEcxel(result, file);
 				}
 			} catch (error) {

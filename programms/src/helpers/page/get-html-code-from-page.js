@@ -29,51 +29,54 @@ const { copyText } = require("./copy-page");
 //     return await copyText(1, filter)
 // }
 
-exports.getHtmlCodeFromPage = async(url, filter) => {
-    await delay(2000)
-    await keyboard.pressKey(Key.LeftControl, Key.T);
-    await keyboard.releaseKey(Key.LeftControl, Key.T);
-    await delay(2000)
-    await clipboard.setContent(url);
-    await keyboard.pressKey(Key.LeftControl, Key.V);
-    await keyboard.releaseKey(Key.LeftControl, Key.V);
-    await keyboard.pressKey(Key.Enter);
-    await keyboard.releaseKey(Key.Enter);
-    await delay(2000)
-    await keyboard.pressKey(Key.LeftControl, Key.T);
-    await keyboard.releaseKey(Key.LeftControl, Key.T);
-    await delay(2000)
-    await clipboard.setContent(`view-source:${url}`);
-    await keyboard.pressKey(Key.LeftControl, Key.V);
-    await keyboard.releaseKey(Key.LeftControl, Key.V);
-    await keyboard.pressKey(Key.Enter);
-    await keyboard.releaseKey(Key.Enter);
+exports.getHtmlCodeFromPage = async (url, filter) => {
+	await delay(2000);
+	await keyboard.pressKey(Key.LeftControl, Key.T);
+	await keyboard.releaseKey(Key.LeftControl, Key.T);
+	await delay(2000);
+	await clipboard.setContent(url);
+	await keyboard.pressKey(Key.LeftControl, Key.V);
+	await keyboard.releaseKey(Key.LeftControl, Key.V);
+	await keyboard.pressKey(Key.Enter);
+	await keyboard.releaseKey(Key.Enter);
+	await delay(3000);
+	await keyboard.pressKey(Key.LeftControl, Key.U);
+	await keyboard.releaseKey(Key.LeftControl, Key.U);
 
-    return await copyText(1, filter)
-}
-    // const target = new Point(500, 350);
+	// await keyboard.pressKey(Key.LeftControl, Key.T);
+	// await keyboard.releaseKey(Key.LeftControl, Key.T);
+	// await delay(2000)
+	// await clipboard.setContent(`view-source:${url}`);
+	// await keyboard.pressKey(Key.LeftControl, Key.V);
+	// await keyboard.releaseKey(Key.LeftControl, Key.V);
+	// await keyboard.pressKey(Key.Enter);
+	// await keyboard.releaseKey(Key.Enter);
 
-    // await mouse.move(straightTo(target));
+	return await copyText(1, filter);
+};
+// const target = new Point(500, 350);
 
-    // async function copy(time) {
+// await mouse.move(straightTo(target));
 
-    //     // console.log(time);
+// async function copy(time) {
 
-    //     await keyboard.pressKey(Key.LeftControl, Key.A);
-    //     await keyboard.releaseKey(Key.LeftControl, Key.A);
-    //     await delay(1000)
-    //     await keyboard.pressKey(Key.LeftControl, Key.C);
-    //     await keyboard.releaseKey(Key.LeftControl, Key.C);
+//     // console.log(time);
 
-    //     const clipb = await clipboard.getContent();
+//     await keyboard.pressKey(Key.LeftControl, Key.A);
+//     await keyboard.releaseKey(Key.LeftControl, Key.A);
+//     await delay(1000)
+//     await keyboard.pressKey(Key.LeftControl, Key.C);
+//     await keyboard.releaseKey(Key.LeftControl, Key.C);
 
-    //     const $ = cheerio.load(clipb);
-    //     // console.log($(isYandexMarketPage).text().trim());
-    //     if ($(isYandexMarketPage).text().trim() !== "")  return clipb
-    //     await delay(time * 1000)
-            
-    //     time++
-    //     if (time < 10) return await copy(time)
+//     const clipb = await clipboard.getContent();
 
-    //     return false
-    // }
+//     const $ = cheerio.load(clipb);
+//     // console.log($(isYandexMarketPage).text().trim());
+//     if ($(isYandexMarketPage).text().trim() !== "")  return clipb
+//     await delay(time * 1000)
+
+//     time++
+//     if (time < 10) return await copy(time)
+
+//     return false
+// }
