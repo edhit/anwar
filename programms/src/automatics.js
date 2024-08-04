@@ -13,6 +13,7 @@ const { readFile } = require("./helpers/read-file");
 const { deleteVendors } = require("./helpers/page/actions/delete-vendors");
 const { keyboard, Key } = require("@nut-tree-fork/nut-js");
 const { getParams } = require("./helpers/get-params");
+const { mouseMove } = require("./helpers/page/mouse-move");
 // const { validate } = require("./helpers/validate");
 // const template = require("./schemes/automatic");
 // await validate(Object.keys(template.properties), params, "automatic");
@@ -29,6 +30,7 @@ const isYandexMarketPage = process.env.isYandexMarketPage
 
 exports.init = async (params, db) => {
 	try {
+		mouseMove();
 		const store = await getParams(params[0], params[1]);
 
 		const path_file = store.path_file;

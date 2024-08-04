@@ -51,6 +51,13 @@ exports.deleteVendors = async (html, filter, data) => {
 				.toUpperCase()
 				.indexOf(`"shopName":"${value}"`.toUpperCase()) > 0
 		) {
+			console.log(`"shopName":"${value}"`.toUpperCase());
+			console.log(
+				$("html")
+					.text()
+					.toUpperCase()
+					.indexOf(`"shopName":"${value}"`.toUpperCase())
+			);
 			flag = false;
 		}
 	}
